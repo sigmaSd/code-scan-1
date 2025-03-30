@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007bff"/>
+    <title>Camera Number Scanner (PWA)</title>
+    <!-- Cropper.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <!-- Tesseract.js via CDN -->
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+    <!-- Cropper.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+</head>
+<body>
+
+    <h1>Scan Number via Camera</h1>
+
+    <div class="container">
+        <!-- Button to start the camera -->
+        <button id="startCameraButton" class="button camera-button">Open Camera</button>
+
+        <!-- Container for the live camera view and capture button -->
+        <div id="cameraViewContainer" style="display: none;">
+            <video id="liveVideo" playsinline autoplay muted></video> <!-- playsinline helps on iOS -->
+            <button id="captureButton" class="button capture-button">Capture Photo</button>
+        </div>
+
+        <!-- Hidden input (no longer used for selection, but kept for potential future use/reference if needed) -->
+        <!-- <input type="file" id="cameraInput" accept="image/*" capture style="display: none;"> -->
+
+        <!-- Container for Cropper (to display captured image) -->
+        <div id="cropContainer">
+            <img id="imageToCrop" src="#" alt="Captured image to crop">
+        </div>
+        <button id="cropButton" class="button">Crop & Scan Area</button>
+
+        <div id="status">
+            Click 'Open Camera' to start.
+        </div>
+
+        <div id="result">
+            <p id="extractedText"></p>
+            <p id="extractedNumber"></p>
+            <a id="dialLink" href="#" class="button dial-button" target="_blank">Dial USSD Code</a>
+            <p class="warning">Note: Clicking 'Dial' will open your phone's dialer. You need to press the call button manually.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Basic Service Worker registration (same as before)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
