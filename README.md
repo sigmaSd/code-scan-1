@@ -6,7 +6,8 @@ A simple Progressive Web App to scan numbers (like USSD codes or phone numbers) 
 
 **Note:**
 
-The auto dial features uses `tel:` protcol, this works on android with firefox but not with chorme.
+- The auto dial features uses `tel:` protcol, this works on android with firefox but not with chorme.
+- Firefox doesn't prompt for installing PWAs like chrome, instead it shows on the right menu "Add app to Home screen" instead of the "Add to home screen" for non pwa sites.
 
 ## Features
 
