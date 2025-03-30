@@ -28,14 +28,14 @@
             <button id="captureButton" class="button capture-button">Capture Photo</button>
         </div>
 
-        <!-- Hidden input (no longer used for selection, but kept for potential future use/reference if needed) -->
-        <!-- <input type="file" id="cameraInput" accept="image/*" capture style="display: none;"> -->
-
         <!-- Container for Cropper (to display captured image) -->
         <div id="cropContainer">
             <img id="imageToCrop" src="#" alt="Captured image to crop">
         </div>
+        <!-- Add Retake Button -->
+        <button id="retakeButton" class="button retake-button">Retake Photo</button>
         <button id="cropButton" class="button">Crop & Scan Area</button>
+
 
         <div id="status">
             Click 'Open Camera' to start.
@@ -44,8 +44,9 @@
         <div id="result">
             <p id="extractedText"></p>
             <p id="extractedNumber"></p>
-            <a id="dialLink" href="#" class="button dial-button" target="_blank">Dial USSD Code</a>
-            <p class="warning">Note: Clicking 'Dial' will open your phone's dialer. You need to press the call button manually.</p>
+            <!-- Keep the link element for potential fallback or display, but hide it -->
+            <a id="dialLink" href="#" class="button dial-button" target="_blank" style="display: none;">Dial Number</a>
+            <p class="warning">Note: The app will attempt to open your dialer automatically. If it doesn't, you may need to copy the number manually.</p>
         </div>
     </div>
 

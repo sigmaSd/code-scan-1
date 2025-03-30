@@ -77,6 +77,21 @@ h1 {
     max-width: 100%;
 }
 
+/* Style for Retake Button */
+.retake-button {
+    margin-top: 10px;
+    display: none;
+    /* Initially hidden */
+    background-color: #6c757d;
+    /* Gray */
+    color: white;
+}
+
+.retake-button:hover {
+    background-color: #5a6268;
+}
+
+
 #cropButton {
     margin-top: 10px;
     display: none;
@@ -141,6 +156,7 @@ h1 {
     background-color: #138496;
 }
 
+/* Keep dial button styles in case needed, but hide it by default via JS/HTML */
 .dial-button {
     background-color: #28a745;
     /* Green */
@@ -153,14 +169,16 @@ h1 {
 
 .warning {
     font-size: 0.8em;
-    color: #dc3545;
-    /* Red */
+    color: #555;
+    /* Less alarming color now */
     margin-top: 15px;
 }
 
-/* Hide buttons initially or when not needed */
+/* Hide buttons initially or when not needed - managed by JS */
 #startCameraButton,
 #captureButton,
-#cropButton {
-    /* display: none; handled by JS */
+#cropButton,
+#retakeButton {
+    /* display: none; */
+    /* JS handles visibility */
 }
