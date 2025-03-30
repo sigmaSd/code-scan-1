@@ -4,6 +4,10 @@ A simple Progressive Web App to scan numbers (like USSD codes or phone numbers) 
 
 **Live Demo:** [https://codescan.deno.dev/](https://codescan.deno.dev/)
 
+**Note:**
+
+The auto dial features uses `tel:` protcol, this works on android with firefox but not with chorme.
+
 ## Features
 
 *   Scan numbers via device camera (`getUserMedia`).
